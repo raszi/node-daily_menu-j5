@@ -19,10 +19,10 @@ module.exports = (robot) ->
           msg.send "No menus for \"#{location}\""
           return
 
-    daily_menus = for restaurant, menu of menus
-      "#{restaurant}: #{menu}"
+        daily_menus = for restaurant, menu of menus
+          "#{restaurant}: #{menu}"
 
-    msg.send daily_menus.join("\n")
+        msg.send daily_menus.join("\n")
 
   robot.respond regexp, (msg) ->
     fetch_menus(msg, msg.match[1])
