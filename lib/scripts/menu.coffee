@@ -20,7 +20,7 @@ module.exports = (robot) ->
           return
 
         daily_menus = for restaurant, menu of menus
-          "#{restaurant}: #{menu}"
+          "#{restaurant}: #{menu.content} @ #{menu.time}"
 
         msg.send daily_menus.join("\n")
 
