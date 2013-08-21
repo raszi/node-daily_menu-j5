@@ -30,6 +30,3 @@ module.exports = (robot) ->
 
   robot.respond regexp, (msg) ->
     fetch_menus(msg, msg.match[1])
-
-  robot.hear regexp, (msg) ->
-    fetch_menus(msg, msg.match[1])
