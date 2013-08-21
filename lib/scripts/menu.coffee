@@ -10,7 +10,11 @@ module.exports = (robot) ->
     robot.http("http://daily-menu.herokuapp.com/menus/#{location}")
       .get() (err, res, body) ->
         if err
-          msg.send "Error while fetching '#{location}'"
+          msg.send "Error while fetching '#{location}': #{err}"
+          return
+
+        if res.statusCode > 300
+          msg.send "Error while fetching '#{location}': #{res.statusCode}"
           return
 
         menus = JSON.parse(body)
